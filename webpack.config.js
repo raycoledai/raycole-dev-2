@@ -1,5 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Make variables in the .env file available on the process.env object
 require('dotenv').config();
@@ -15,9 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     publicPath: '/',
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: 'index.html'}),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
   resolve: {
     modules: [__dirname, 'node_modules'],
     alias: {
