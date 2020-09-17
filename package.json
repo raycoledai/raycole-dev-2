@@ -61,6 +61,8 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "camelcase": "^5.3.1",
     "fs-extra": "^8.1.0",
     "react": "^16.13.1",
