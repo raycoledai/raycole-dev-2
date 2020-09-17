@@ -1,6 +1,6 @@
 // @flow strict
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { Global, css, jsx } from '@emotion/core';
 
 import logo from './logo.svg';
 
@@ -43,7 +43,20 @@ function AppHeader() {
 
 function App() {
   return (
-    <div css={{ textAlign: 'center' }}>
+    <div>
+      <Global
+        styles={css`
+          body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+              'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+              'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            textalign: center;
+          }
+        `}
+      />
       <AppHeader />
     </div>
   );
