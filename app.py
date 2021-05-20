@@ -1,12 +1,14 @@
 import os
 from os.path import dirname, join
 
+from datetime import date
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
+import json
 from pymongo import MongoClient
 
-from api.mongo import CryptoCoin
+from api.mongo import CryptoCoin, CryptoHistorical
 
 dotenv_path = join(dirname(__file__), "../.env")
 load_dotenv(dotenv_path)
@@ -46,8 +48,11 @@ def coins():
     return jsonify(coins)
 
 
-@app.route("/calculate_index/", methods=["GET", "POST"])
+@app.route("/calculate_index", methods=["GET", "POST"])
 def calculate_index():
     if request.method == "POST":
-        data = request.json
-        print(data)
+        data = json.loads(request.data)
+        index = CryptoHistorical(mongoClient).calculate_index(data["coin_ids"])
+        for point in index:
+            point["date"] = point["_id"][:10]
+        return jsonify(index)

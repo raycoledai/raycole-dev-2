@@ -16,8 +16,8 @@ class CryptoHistorical(object):
         db = client["crypto"]
         self.col = db["historical"]
 
-    def find_all(self, selector):
-        return self.col.find(selector)
+    def find_all(self, *args, **kwargs):
+        return self.col.find(args)
 
     def find(self, selector):
         return self.col.find_one(selector)
@@ -52,7 +52,7 @@ class CryptoHistorical(object):
             },
             {
                 u"$addFields": {
-                    u"total": {
+                    u"value": {
                         u"$sum": {
                             u"$map": {
                                 u"input": u"$agg_price",
@@ -84,8 +84,8 @@ class CryptoCoin(object):
         db = client["crypto"]
         self.col = db["coin"]
 
-    def find_all(self, selector):
-        return self.col.find(selector)
+    def find_all(self, *args, **kwargs):
+        return self.col.find(*args)
 
     def find(self, selector):
         return self.col.find_one(selector)
