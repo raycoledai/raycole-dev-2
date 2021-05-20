@@ -10,6 +10,8 @@ db = mongo_client["crypto"]
 coins = db["coin"]
 crypto_col = db["historical"]
 
+time_start = 1620691200  # 11/05/21
+time_end = 1622505599  # 31/05/21
 
 api = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/historical"
 
@@ -20,7 +22,7 @@ for coin in pbar:
         f"Getting historical price data for: {coin['name']}({coin['symbol']})..."
     )
 
-    url = f"{api}?id={coin['coin_id']}&convertId=2781&timeStart=1356998400&timeEnd=1620691200"
+    url = f"{api}?id={coin['coin_id']}&convertId=2781&timeStart={time_start}&timeEnd={time_end}"
     response = requests.get(url)
 
     if response.ok:
