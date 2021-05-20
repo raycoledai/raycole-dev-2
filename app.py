@@ -27,8 +27,23 @@ def index():
 
 @app.route("/coins", methods=["GET"])
 def coins():
-    coins = CryptoCoin(mongoClient).find_all({})
-    return coins
+    coins = list(
+        CryptoCoin(mongoClient).find_all(
+            {},
+            {
+                "_id": 0,
+                "coin_id": 1,
+                "name": 1,
+                "symbol": 1,
+                "cmcRank": 1,
+                "price": 1,
+                "marketCap": 1,
+            },
+        )
+    )
+    for coin in coins:
+        coin["key"] = coin["coin_id"]
+    return jsonify(coins)
 
 
 @app.route("/calculate_index/", methods=["GET", "POST"])
