@@ -83,7 +83,7 @@ export default function MarketIndex() {
   const hasSelected = selectedRowKeys.length > 0;
 
   return (
-    <div className="Crypto">
+    <div className="MarketIndex">
       <div style={{ marginBottom: 16 }}>
         <PriceHistoryChart data={index} height={900} width={1600} ratio={1} />
         <Button
