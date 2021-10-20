@@ -3,7 +3,8 @@ import { Layout, Menu } from 'antd';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Crypto, { MarketIndex } from './pages/Crypto/MarketIndex';
+import Crypto from './pages/Crypto';
+import MarketIndex from './pages/Crypto/MarketIndex';
 import Home from './pages/Home';
 
 const { Header, Content, Sider } = Layout;
@@ -44,7 +45,7 @@ export default function App() {
               style={{
                 padding: 24,
                 margin: 0,
-                minHeight: 280,
+                minHeight: '90vh',
               }}
             >
               <Switch>

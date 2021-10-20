@@ -2,42 +2,23 @@
 import { Global, css } from '@emotion/core';
 import React from 'react';
 
-import logo from './logo.svg';
+import Card from '../../primitives/Card';
 
-function AppHeader() {
+function Layout({ children }: {| children: React$Node |}) {
   return (
-    <header
+    <div
       css={{
         backgroundColor: '#282c34',
         minHeight: '100vh',
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: `calc(10px + 2vmin)`,
+        flexDirection: 'row',
         color: 'white',
+        resize: 'both',
+        overflow: 'auto',
       }}
     >
-      <img
-        css={{
-          height: '40vmin',
-          pointerEvents: 'none',
-        }}
-        src={logo}
-        alt={'logo'}
-      />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        css={{ color: '#61dafb' }}
-        href={'https://reactjs.org'}
-        target={'_blank'}
-        rel={'noopener noreferrer'}
-      >
-        Learn React
-      </a>
-    </header>
+      {children}
+    </div>
   );
 }
 
@@ -57,7 +38,35 @@ export default function Home() {
           }
         `}
       />
-      <AppHeader />
+      <Layout>
+        <Card>
+          <img
+            css={{
+              display: 'block',
+              maxWidth: 995,
+              maxHeight: 560,
+              width: '100%',
+              objectFit: 'cover',
+              height: 'auto',
+            }}
+            src="https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-1024x576.gif"
+            className="f-hero-image-inline"
+            alt="Resume, devices, and creative tools on top of desk"
+            srcSet="https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-1024x576.gif 1024w, https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-300x169.gif 300w, https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-768x432.gif 768w, https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-960x540.gif 960w, https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-480x270.gif 480w"
+          />
+          {/* <div
+            css={{
+              background:
+                'url("https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/388/2018/05/limitedexperience_hero_animation-1024x576.gif")',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }}
+          ></div> */}
+          asd
+        </Card>
+        <Card>zxc</Card>
+      </Layout>
     </div>
   );
 }
